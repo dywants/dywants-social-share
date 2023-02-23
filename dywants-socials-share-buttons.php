@@ -21,8 +21,15 @@ function wp_social_buttons($content) {
 
         // $pathImg = WP_PLUGIN_URL . '/dywants-socials-share-buttons/assets/img';
 
-        $chemin_plugin = plugin_dir_path( __FILE__ );
-        $pathImg = str_replace(ABSPATH, '/', $chemin_plugin) . '/assets/img';
+        $plugin = plugins_url();
+
+        // $chemin_plugin = plugin_dir_path( __FILE__ );
+        // $pathImg = str_replace(ABSPATH, '/', $chemin_plugin) . '/assets/img';
+
+        $root_path = $_SERVER['DOCUMENT_ROOT'];
+        $plugin_path = plugin_dir_path( __FILE__ );
+        $pathImg = str_replace( $root_path, '', $plugin_path ) . 'assets/img';
+        
         // Get current page URL
         $postUrl = urlencode(get_permalink());
 
