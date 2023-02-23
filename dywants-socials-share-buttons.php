@@ -19,8 +19,10 @@ function wp_social_buttons($content) {
     global $post;
     if(is_singular() || is_home()){
 
-        $pathImg = WP_PLUGIN_URL . '/dywants-socials-share-buttons/assets/img';
+        // $pathImg = WP_PLUGIN_URL . '/dywants-socials-share-buttons/assets/img';
 
+        $chemin_plugin = plugin_dir_path( __FILE__ );
+        $pathImg = site_url() . '/' . str_replace(ABSPATH, '/', $chemin_plugin) . '/assets/img';
         // Get current page URL
         $postUrl = urlencode(get_permalink());
 
